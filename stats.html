@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="client/styles/stats.css">
+    <link rel="stylesheet" href="client/styles/header.css">
+    <title>Статистика посещений</title>
+</head>
+<header>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+    <nav class="container">
+        <div class="container-rows">
+            <div class="column1"><a class="logo" href="#">Wish</a></div>
+            <div class="column2">
+                <ul class="top-menu">
+                    <li><a href="history.html">История заказов</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="stat.html">Продажи</a></li>
+                    <li><a href="login.html">Личный кабинет</a></li>
+                    <li><a href="busket.html">Посещения</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="history">Статистика посещений</div>
+<body>
+    <main>
+        <div id="stats-container">
+            <div id="visits-stats">
+                <!-- Здесь будет отображаться статистика посещений -->
+            </div>
+        </div>
+    </main>
+    <script>
+        fetch('/stats')
+            .then(response => response.json())
+            .then(data => {
+                const visitsStatsContainer = document.getElementById('visits-stats');
+                for (const page in data) {
+                    const visits = data[page];
+                    const entry = document.createElement('p');
+                    entry.textContent = `Страница "${page}" - Кол-во посещений: ${visits}`;
+                    visitsStatsContainer.appendChild(entry);
+                }
+            })
+            .catch(error => console.error('Ошибка загрузки данных о посещениях:', error));
+
+        fetch('/sales-stats')
+            .then(response => response.json())
+            .then(sales => {
+                const salesStatsContainer = document.getElementById('sales-stats');
+                // Отображаем количество продаж каждого товара
+                for (const productId in sales) {
+                    const entry = document.createElement('p');
+                    entry.textContent = `Товар ID ${productId} - Количество продаж: ${sales[productId]}`;
+                    salesStatsContainer.appendChild(entry);
+                }
+            })
+            .catch(error => console.error('Ошибка загрузки данных о продажах:', error));
+    </script>
+</body>
+</html>

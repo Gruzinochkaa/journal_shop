@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish</title>
+    <link rel="stylesheet" href="client/styles/main.css">
+    <link rel="stylesheet" href="client/styles/footer.css">
+    <link rel="stylesheet" href="client/styles/header.css">
+</head>
+<header>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+    <nav class="container">
+        <div class="container-rows">
+            <div class="column1"><a class="logo" href="#">Wish</a></div>
+            <div class="column2">
+                <ul class="top-menu">
+                    <li><a href="history.html">История заказов</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="stat.html">Продажи</a></li>
+                    <li><a href="login.html">Личный кабинет</a></li>
+                    <li><a href="stats.html">Посещения</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+<main>
+    <div class="background">
+        <div style="text-align: center; opacity: 95%;">
+            <div class="center-card">
+                <div class="grid">
+                    <div class="journal">
+                        Магазин журналов
+                    </div>
+                    <div class="name">
+                        Wish
+                    </div>
+                    <div>
+                        <form action="catalog.html">
+                            <button type="submit" class="order">Заказать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="anchor"></a><div class="aboutUs">О нас</div>
+    <div class="gridAboutUs">
+        <div class="gridImages">
+            <img src="client/images/О_нас_1.jpg">
+            <img src="client/images/О_нас_2.jpg">
+        </div>
+        <div style="vertical-align: center">
+            Wish - интернет магазин журналов разных изданий и популярных авторов.<br><br>
+
+            Здесь вы всегда найдете свежие и интересные издания на самые разнообразные темы.
+            У нас представлен широкий ассортимент
+            журналов - от моды и красоты до автомобилей и путешествий.<br><br>
+
+            Мы следим за тенденциями и
+            обновляем нашу коллекцию регулярно, чтобы удовлетворить запросы даже самых взыскательных читателей.
+            Погрузитесь в мир увлекательных статей, красочных фотографий и актуальных новостей с нашими журналами!<br><br>
+
+            Подписывайтесь на любимые журналы прямо сейчас и получайте свежие номера удобным для вас способом.
+        </div>
+    </div>
+
+</main>
+
+<div id="cookie-popup" class="cookie-popup">
+    <div class="cookie-content">
+        <h2>Использование файлов cookie</h2>
+        <p>Мы используем файлы cookie для улучшения работы нашего сайта. Продолжая использовать наш сайт, вы соглашаетесь с нашей политикой использования файлов cookie.</p>
+        <button id="close-cookie-popup">Закрыть</button>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="footer_logo"><a href="#">Wish</a></div>
+                <nav class="footer_nav">
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="main.html#anchor">О нас</a></li>
+                        <li><a href="cabinet.html">Личный кабинет</a></li>
+                        <li><a href="busket.html">Корзина</a></li>
+                    </ul>
+                </nav>
+                <div class="footer_social">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="index.js"></script>
+</body>
+</html>

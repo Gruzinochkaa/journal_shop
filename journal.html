@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wish</title>
+    <link rel="stylesheet" href="client/styles/journal.css">
+    <link rel="stylesheet" href="client/styles/header.css">
+</head>
+<header>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+    <nav class="container">
+        <div class="container-rows">
+            <div class="column1"><a class="logo" href="#">Wish</a></div>
+            <div class="column2">
+                <ul class="top-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="Catalog.html">Каталог</a></li>
+                    <li><a href="index.html#anchor">О нас</a></li>
+                    <li><a href="Cabinet.html">Личный кабинет</a></li>
+                    <li><a href="Busket.html">Корзина</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+<main>
+    <div class="journal"><p>Журнал</p></div>
+</main>
+
+<!-- Контейнер для отображения информации о самолете -->
+<div id="plane-details"></div>
+
+<!-- Кнопка для возврата к каталогу -->
+<div class="button-block">
+    <button class="button-change" id="return-button">Вернуться в каталог</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Получаем параметры запроса из URL
+        const params = new URLSearchParams(window.location.search);
+        const modelName = params.get('model');
+        if (modelName) {
+            // Формируем URL для запроса данных о самолете
+            const url = 'http://localhost:3000/planes?model=' + encodeURIComponent(modelName);
+            // Отправляем запрос на получение данных о самолете
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Ошибка HTTP: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Получаем контейнер для отображения информации о самолете
+                    const planeDetailsDiv = document.getElementById('plane-details');
+                    // Формируем HTML-разметку для отображения информации о самолете
+                    const html = `
+                            <p>Модель: ${data.model}</p>
+                            <p>Производитель: ${data.manufacturer}</p>
+                            <p>Год выпуска: ${data.year}</p>
+                            <p>Цена: ${data.price}</p>
+                            <p>Количество турбин: ${data.colvo_tyrbin}</p>
+                            <p>Страна: ${data.country}</p>
+                            <p>Тип двигателя: ${data.engine_type}</p>
+                            <p>Мощность двигателя: ${data.max_range}</p>
+                            <p>Максимальное количество пассажиров: ${data.max_passengers}</p>
+                            <p>Максимальная масса взлёта: ${data.max_takeoff_weight}</p>
+                        `;
+                    // Отображаем информацию о самолете в контейнере
+                    planeDetailsDiv.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Произошла ошибка при выполнении запроса:', error);
+                    alert('Произошла ошибка при получении данных о самолете');
+                });
+        }
+
+        // Обработчик нажатия кнопки "Вернуться в каталог"
+        const returnButton = document.getElementById('return-button');
+        returnButton.addEventListener('click', function() {
+            window.location.href = 'catalog.html'; // Изменить на путь к вашей странице каталога
+        });
+    });
+</script>
+
+</body>
+</html>

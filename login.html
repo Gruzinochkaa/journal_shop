@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wish</title>
+    <link rel="stylesheet" href="client/styles/login.css">
+    <link rel="stylesheet" href="client/styles/header.css">
+</head>
+<header>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+    <nav class="container">
+        <div class="container-rows">
+            <div class="column1"><a class="logo" href="#">Wish</a></div>
+            <div class="column2">
+                <ul class="top-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="index.html#anchor">О нас</a></li>
+                    <li><a href="cabinet.html">Личный кабинет</a></li>
+                    <li><a href="busket.html">Корзина</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+<main>
+    <section class="registration-form">
+        <form id="login-form">
+            <div class="background">
+                <div class="area">
+                    <div class="authorization">Регистрация и авторизация</div>
+                    <div class="rows">
+                        <div class="grid-row">
+                            <label for="email">Электронная почта</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="grid-row">
+                            <label for="password">Пароль</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                    </div>
+                    <div class="button-block">
+                        <button class="button-change" type="button" id="register-btn">Зарегистрироваться</button>
+                        <button class="button-change" type="button" id="login-btn">Авторизироваться</button>
+                    </div>
+                </div>
+            </div>
+            <p id="error-message" style="color: red;"></p>
+        </form>
+    </section>
+</main>
+<script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wish</title>
+    <link rel="stylesheet" href="client/styles/cabinet.css">
+    <link rel="stylesheet" href="client/styles/header.css">
+</head>
+<header>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+    <nav class="container">
+        <div class="container-rows">
+            <div class="column1"><a class="logo" href="#">Wish</a></div>
+            <div class="column2">
+                <ul class="top-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="index.html#anchor">О нас</a></li>
+                    <li><a href="cabinet.html">Личный кабинет</a></li>
+                    <li><a href="busket.html">Корзина</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+<main>
+    <div class="cabinet"><p>Личный кабинет</p></div>
+</main>
+    <section class="user-info">
+            <form id="user-profile-form">
+                <div class="background">
+                    <div class="grid-columns">
+                        <div class="grid-row"><label for="name">Имя</label><input type="text" id="name" name="name"></div>
+                        <div class="grid-row"><label for="surname">Фамилия</label><input type="text" id="surname" name="surname"></div>
+                        <div class="grid-row"><label for="telephone">Номер телефона</label><input type="tel" id="telephone" name="telephone"></div>
+                        <div class="grid-row"><label for="email">Электронная почта</label><input type="email" id="email" name="email"></div>
+                        <div class="grid-row"><label for="password">Пароль</label><input type="password" id="password" name="password"></div>
+                        <div class="grid-row"><label for="birthday">Дата рождения</label><input type="date" id="birthday" name="birthday"></div>
+                        <div class="grid-row"><label for="sex">Пол</label>
+                            <select id="sex" name="sex">
+                                <option value="male">Мужской</option>
+                                <option value="female">Женский</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="button-block">
+                        <button class="button-change">Редактировать</button>
+                        <button id="update-info-btn" class="button-change">Обновить</button>
+                        <button id="logout-btn" class="button-change">Выйти</button>
+                    </div>
+                </div>
+            </form>
+        <p>Предыдущие заказы</p>
+        <ul id="orders-list"></ul>
+    </section>
+<script src="lk.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const loggedInUserEmail = localStorage.getItem("loggedInUserEmail");
+        if (!loggedInUserEmail) {
+            window.location.href = "/login.html"; // Перенаправляем на страницу авторизации, если пользователь не авторизован
+        } else {
+            fetchUserData(loggedInUserEmail);
+            document.getElementById("register-link").style.display = "none";
+        }
+
+        const loggedInUserPassword = localStorage.getItem("loggedInUserPassword");
+        if (loggedInUserPassword) {
+            document.getElementById("password").value = loggedInUserPassword;
+        }
+    });
+
+    // Обработчик для кнопки "Выйти"
+    document.getElementById("logout-btn").addEventListener("click", function(event) {
+        event.preventDefault();
+        localStorage.removeItem("loggedInUserEmail");
+        localStorage.removeItem("loggedInUserPassword");
+        window.location.href = "/login.html";
+        document.getElementById("register-link").style.display = "block";
+    });
+</script>
+</body>
+</html>

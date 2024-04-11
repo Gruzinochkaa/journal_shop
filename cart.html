@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wish</title>
+    <link rel="stylesheet" href="client/styles/cart.css">
+    <link rel="stylesheet" href="client/styles/footer.css">
+    <link rel="stylesheet" href="client/styles/header.css">
+</head>
+
+<header>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+    <nav class="container">
+        <div class="container-rows">
+            <div class="column1"><a class="logo" href="#">Wish</a></div>
+            <div class="column2">
+                <ul class="top-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="index.html#anchor">О нас</a></li>
+                    <li><a href="cabinet.html">Личный кабинет</a></li>
+                    <li><a href="busket.html">Корзина</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<body>
+<div class="information"><p>Информация о товаре</p></div>
+    <div id="product-details" class="product-details">
+        <!-- Здесь будет отображаться информация о товаре -->
+    </div>
+    <div style="margin: 50px; justify-content: center; text-align: center;">
+        <button id="add-to-cart-btn" class="button-change">Добавить в корзину</button>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <div class="footer_logo"><a href="#">Wish</a></div>
+                    <nav class="footer_nav">
+                        <ul>
+                            <li><a href="#">Главная</a></li>
+                            <li><a href="catalog.html">Каталог</a></li>
+                            <li><a href="#anchor">О нас</a></li>
+                            <li><a href="cabinet.html">Личный кабинет</a></li>
+                            <li><a href="busket.html">Корзина</a></li>
+                        </ul>
+                    </nav>
+                    <div class="footer_social">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="copyright">
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="cart.js"></script>
+</body>
+</html>
